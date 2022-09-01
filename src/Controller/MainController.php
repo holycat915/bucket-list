@@ -13,7 +13,7 @@ class MainController extends AbstractController
 //     */
 //    public function index(): Response
 //    {
-//        return $this->render('home/index.html.twig', [
+//        return $this->render('home/home.html.twig', [
 //            'controller_name' => 'MainController',
 //        ]);
 //    }
@@ -21,7 +21,7 @@ class MainController extends AbstractController
 
 //
 //    public function home(){
-//        return $this->render(home/index.html.twig);
+//        return $this->render(home/home.html.twig);
 //    }
 
 
@@ -29,7 +29,7 @@ class MainController extends AbstractController
      * @Route("/", name="app_home")
      */
     public function home(){
-        return $this->render('home/index.html.twig');
+        return $this->render('home/home.html.twig');
     }
 
 
