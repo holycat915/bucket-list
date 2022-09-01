@@ -33,6 +33,7 @@ header h1 {
 header a {
     text-decoration: none;
     color: inherit;
+    padding-right: 2rem;
 }
 
 header nav a:hover {
@@ -48,6 +49,7 @@ header nav a:hover {
 }
 .header-nav {
     display: flex;
+    padding-right: 2rem;
     /*flex:1;*/
     /*flex-direction:row;*/
 }
@@ -57,7 +59,8 @@ main {
     padding: 1rem 0;
     background-color: #FFF1E6;
 }
-footer { padding: 2rem 0;
+footer {
+    padding: 2rem 0;
     text-align: center;
     background-color: #EDDCD2;
 }
