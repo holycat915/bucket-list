@@ -1,39 +1,22 @@
 {%  extends 'base.html.twig' %}
 
 {% block body %}
-    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor fugiat iure minus odio officiis placeat velit.
-        Eos et hic in iste laudantium modi molestiae numquam officia officiis praesentium, reprehenderit, sapiente.
-    </div>
-    <div>Aspernatur, earum, odit! Asperiores blanditiis dolorum, error est odio perferendis placeat possimus provident
-        quaerat quisquam sapiente sed ut veniam! Dicta est hic illum laboriosam mollitia provident quasi quibusdam
-        quidem, ullam.
-    </div>
-    <div>Commodi distinctio dolorem dolorum facere, fugit id iste laboriosam minima modi nisi quas qui quisquam tempora
-        tempore ullam. Alias corporis eaque illo ipsa iste quam quod quos sapiente sed sunt.
-    </div>
-    <div>Accusantium autem deserunt dignissimos eos exercitationem harum libero necessitatibus officia quos sint.
-        Commodi cumque dolores fuga labore reiciendis repellat repudiandae sunt? Atque consequatur deserunt fugiat hic
-        officia quidem sequi ut.
-    </div>
-    <div>Aliquam cumque, deserunt ea enim esse expedita illum inventore itaque, modi molestiae mollitia non, odit
-        tempora! Amet deleniti, dolorum ea est ipsum labore laboriosam maxime modi quaerat sed, temporibus veniam.
-    </div>
-    <div>Corporis culpa delectus dignissimos doloribus, est eveniet ipsam nemo omnis pariatur, placeat quidem quo rem
-        sint tempora velit voluptas voluptate. Alias dicta dignissimos dolores illo modi nostrum perspiciatis sed
-        similique?
-    </div>
-    <div>Ad amet, at eius explicabo, fugiat incidunt inventore iusto magni neque nesciunt nihil nobis numquam placeat
-        provident quia recusandae rem repellendus vel vitae voluptatibus. Aliquam beatae deserunt ipsum porro ratione.
-    </div>
-    <div>Aperiam cupiditate ducimus eligendi est laborum quae quos. Facilis hic incidunt labore nihil quaerat quisquam
-        vero? Asperiores commodi dolorum facere fugit, id ipsa libero non nostrum, nulla sequi vitae voluptatibus?
-    </div>
-    <div>Architecto assumenda autem commodi, error eum excepturi ipsa, ipsum maxime molestias nihil odit officiis omnis
-        quisquam rem similique tempora, voluptate. Aperiam aut cupiditate quas quibusdam sint sit tenetur unde veniam.
-    </div>
-    <div>At, aut autem consequatur culpa delectus dicta dignissimos iure laboriosam mollitia nobis officia quasi qui
-        quisquam. A accusamus adipisci aliquam, aut corporis distinctio ex iusto laudantium minima quam, quis suscipit?
-    </div>
+    <section class="team-members">
+        {% for member in teammembers %}
+            <article>
+                <img src="{{ member.picture }}" alt="{{ member.lastname }}">
+                <div>
+                    <h3>{{ member.firstname }} {{ member.lastname }} {{ member.firstname == "Fabien"? "&#128151":"" }}</h3>
+                    <p>Creator of {{ member.creatorOf }}</p>
+                    <p>Date of birth{{ member.dateOfBirth|date("d-m-Y") }}</p>
+                    <p>{{ member.description }}</p>
+
+                </div>
+            </article>
+        {%  endfor %}
+
+    </section>
+
 {% endblock %}
 
-{%  block title %}{{ parent() }} | Test{% endblock%}
+{%  block title %}{{ parent() }} | Abous us{% endblock%}

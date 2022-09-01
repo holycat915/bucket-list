@@ -8,22 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
-//    /**
-//     * @Route("/", name="app_home")
-//     */
-//    public function index(): Response
-//    {
-//        return $this->render('home/home.html.twig', [
-//            'controller_name' => 'MainController',
-//        ]);
-//    }
-
-
-//
-//    public function home(){
-//        return $this->render(home/home.html.twig);
-//    }
-
+//    $auteurs = array();
 
     /**
      * @Route("/", name="main_home")
@@ -35,7 +20,16 @@ class MainController extends AbstractController
      * @Route("/aboutUs", name="main_about_us")
      */
     public function aboutUs(){
-        return $this->render('home/about_us.html.twig');
+        // ATTENTION : le chemin est relatif au contrôleur frontal donc au répertoire "public"
+        $rawData = file_get_contents("../data/team.json");
+        // Ou mettre le second paramètre à true pour travailler par rapport au répertoire courant
+        // $rawData = file_get_contents("../data/team.json", true);
+        // // il faut décoder la chaîne en tableau associatif
+
+        $teammembers = json_decode($rawData, true);
+        dump($teammembers);
+        return $this->render('home/about_us.html.twig',
+            ['teammembers' => $teammembers]);
     }
     /**
      * @Route("/test/", name="main_test")
