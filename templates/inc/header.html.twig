@@ -1,7 +1,15 @@
-<h1>Bucket-list</h1>
-<nav>
-    <ul>
-        <li><a href="#" title="Home">Home</a></li>
-        <li><a href="#" title="Test">Test</a></li>
-    </ul>
-</nav>
+<div class="container">
+    <h1 class="header-logo">
+        <a href="{{path('main_home')  }}" title="Go back to homepage">
+            <img src="{{ asset('img/logo.svg') }}" alt="Bucket-list logo">Bucket-list
+        </a>
+    </h1>
+    <nav class="header-nav">
+{#        <ul>#}
+            <a href="{{ path('main_home') }}" title="Go back to homepage">Home</a>
+            <a href="{{ path('main_test') }}" title="Go back to homepage">Test</a>
+{#            <li><a href="#" title="Home">Home</a></li>#}
+{#            <li><a href="#" title="Test">Test</a></li>#}
+{#        </ul>#}
+    </nav>
+</div>
