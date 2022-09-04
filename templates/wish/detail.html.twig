@@ -1,8 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Affiche le détail d'un souhait{% endblock %}
+{% block title %}
+    {{wish.title}} | {{ parent()}}
+{% endblock %}
 
 {% block body %}
-<h1>Détail</h1>
+    <h1>{{wish.title}}</h1>
+{#    {% for wish in wishes %}#}
+    <div>{{ wish.description }}</div>
+    <div>{{ wish.author }}</div>
+    <div>{{ wish.dateCreated|date('d-m-Y') }}</div>
 
 {% endblock %}
