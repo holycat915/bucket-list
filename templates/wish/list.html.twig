@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello WishController!{% endblock %}
+{% block title %}
+    Liste de souhaits
+{% endblock %}
 
 {% block body %}
 <h1>liste</h1>
     {%  for wish in wishes %}
         <p>
-        <a href="{{ path('wish_detail', {'id' : wish.id}) }}" title="View wish's details">{{ wish.title }}</a>
+        <a href="{{ path('wish_detail', {'id' : wish.id}) }}" title="View this wish's details">{{ wish.title }}</a>
         </p>
 {#        <br>#}
     {% endfor %}
