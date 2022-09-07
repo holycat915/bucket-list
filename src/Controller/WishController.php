@@ -13,19 +13,38 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class WishController extends AbstractController
 {
+
+//    public function list(WishRepository $wishRepository): Response
+//    {
+//        $wishes = $wishRepository->findBy([],['dateCreated'=>'ASC']);
+//        // On passe la variable à twig
+//
+////        dd($wishes);
+//
+//
+//        return $this->render('wish/list.html.twig', [
+//            "wishes" => $wishes
+//        ]);
+//    }
+
     /**
      * @Route("/wish/all", name="wish_list")
      */
     public function list(WishRepository $wishRepository): Response
     {
-        $wishes = $wishRepository->findBy([],['dateCreated'=>'ASC']);
-        // On passe la variable à twig
-
-//        dd($wishes);
+        // récupère les Wish publiés, du plus récent au plus ancien
+        // $wishes = $wishRepository->findBy(['isPublished' => true], ['dateCreated' => 'DESC']);
+        // on appelle une méthode personnalisée ici pour éviter d'avoir trop de requêtes.
+        $wishes = $wishRepository->findPublishedWishesWithCategories();
         return $this->render('wish/list.html.twig', [
+            // les passe à Twig
             "wishes" => $wishes
         ]);
     }
+
+
+
+
 
     /**
      * @Route("/wish/detail/{id}", name="wish_detail")
@@ -39,9 +58,9 @@ class WishController extends AbstractController
     }
 
     /**
-     * @Route("/wish/add", name="wish_add")
+     * @Route("/wish/create", name="wish_create")
      */
-    public function addWish(
+    public function create(
         Request $request,
         EntityManagerInterface $entityManager
     ): Response{
@@ -66,7 +85,7 @@ class WishController extends AbstractController
         }
 
         // traiter le formulaire
-        return $this->renderForm('wish/addwish.html.twig', [
+        return $this->renderForm('wish/create.html.twig', [
             'wishForm' => $wishForm //->createView()
         ]);
     }

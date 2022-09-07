@@ -97,13 +97,14 @@ main h2 {
 input {
     display:block;
 }
-input, textarea {
+input, textarea, select{
 
     margin-bottom : 2rem;
     box-sizing: border-box;
     width: 200px;
     max-width: 50%;
     text-align: right;
+    padding: 0.2rem 0.5rem;
     /*float: right;*/
 }
 label {

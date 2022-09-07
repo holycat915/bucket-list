@@ -10,5 +10,12 @@
     <div>{{ wish.description }}</div>
     <div>{{ wish.author }}</div>
     <div>{{ wish.dateCreated|date('d-m-Y') }}</div>
+    <h2>{{ wish.title }} [{{ wish.category.name }}]</h2>
+{#    <section class="categories">#}
+{#        <h3>Categories</h3>#}
+{#        {%  for category in wish.categories %}#}
+{#            <article>{{ category.name }}</article>#}
+{#        {%  endfor %}#}
+{#    </section>#}
 
 {% endblock %}
