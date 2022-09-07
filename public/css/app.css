@@ -28,6 +28,7 @@ footer {
 }
 header h1 {
     margin: 0 0 10px 0;
+    flex: 1;
 }
 
 header a {
@@ -52,6 +53,15 @@ header nav a:hover {
     /*padding-right: 2rem;*/
     /*flex:1;*/
     /*flex-direction:row;*/
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-nav a {
+    margin-left: 1rem;
 }
 
 main {
